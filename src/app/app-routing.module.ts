@@ -51,11 +51,28 @@ import {LayoutComponent} from './DemoPages/Forms/Elements/layout/layout.componen
 // Charts
 
 import {ChartjsComponent} from './DemoPages/Charts/chartjs/chartjs.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   {
+    path: 'login',
+    component: LoginBoxedComponent,
+    data: {extraParameter: ''}
+  },
+  {
+    path: 'register',
+    component: RegisterBoxedComponent,
+    data: {extraParameter: ''}
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordBoxedComponent,
+    data: {extraParameter: ''}
+  },
+  {
     path: '',
     component: BaseLayoutComponent,
+    canActivate: [AuthGuardService],
     children: [
 
       // Dashboads

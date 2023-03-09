@@ -7,23 +7,24 @@
           <div class="modal-body">
             <h5 class="modal-title">
               <h4 class="mt-2">
-                <div>Welcome,</div>
-                <span>It only takes a <span class="text-success">few seconds</span> to create your account</span>
+                <div>Dobrodošli,</div>
+                <span>Potrebno je samo <span class="text-success">nekoliko sekundi</span> da kreirate svoj nalog</span>
               </h4>
             </h5>
             <div class="divider"></div>
             <div id="exampleInputGroup1" role="group" aria-describedby="exampleInputGroup1__BV_description_" class="mb-3">
               <div>
-                <input id="exampleInput1" type="email" placeholder="Enter email..." required="required"
-                  aria-required="true" class="form-control" aria-describedby="exampleInputGroup1__BV_description_">
+                <input id="exampleInput1" type="email" placeholder="Unesite email..." required="required"
+                  aria-required="true" class="form-control" aria-describedby="exampleInputGroup1__BV_description_"
+                  [(ngModel)]="user.email" name="user.email">
                 <small tabindex="-1" id="exampleInputGroup1__BV_description_" class="form-text text-muted">
-                  We'll never share your email with anyone else.
+                  Nikada nećemo dijeliti vašu e-mail adresu ni sa kim.
                 </small>
               </div>
             </div>
             <div id="exampleInputGroup12" role="group" class="mb-3">
               <div>
-                <input id="exampleInput12" type="text" placeholder="Enter username..." required="required"
+                <input id="exampleInput12" type="text" placeholder="Unesite korisničko ime..." required="required"
                   aria-required="true" class="form-control">
               </div>
             </div>
@@ -31,44 +32,42 @@
               <div class="col-md-6">
                 <div id="exampleInputGroup2" role="group" class="mb-3">
                   <div>
-                    <input id="exampleInput2" type="password" placeholder="Enter password..." required="required"
-                      aria-required="true" class="form-control">
+                    <input id="exampleInput3" type="password" placeholder="Unesite šifru..." required="required" aria-required="true" class="form-control"
+                      [(ngModel)]="user.password" name="user.password">
                   </div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div id="exampleInputGroup2" role="group" class="mb-3">
                   <div>
-                    <input id="exampleInput2" type="password" placeholder="Repeat password..." required="required"
-                      aria-required="true" class="form-control">
+                    <input id="exampleInput2" type="password" placeholder="Ponovite šifru..." required="required" aria-required="true" class="form-control"
+                    [(ngModel)]="passwordMatch" name="passwordMatch">
                     </div>
                 </div>
               </div>
             </div>
             <div class="custom-control custom-checkbox form-check">
-              <input id="exampleCheck" type="checkbox" name="check" autocomplete="off" class="form-check-input" value="true">
+              <input id="exampleCheck" type="checkbox" name="check" autocomplete="off" class="form-check-input" value="true" [(ngModel)]="terms" name="terms">
               <label for="exampleCheck" class="form-label form-check-label">
-                Accept our <a [routerLink]="">Terms and Conditions</a>.
+                Prihvatite naše <a [routerLink]="">uslove i odredbe</a>.
               </label>
             </div>
+            <ngb-toast #toast [autohide]="true" [delay]="0" class="bg-danger text-light"> Šifre se ne slažu ili uslovi nisu prihvaćeni. </ngb-toast>
             <div class="divider"></div>
             <h6 class="mb-0">
-              Already have an account?
-              <a [routerLink]="" class="text-primary">Sign in</a>
+              Već imate nalog?
+              <a [routerLink]="['/login']" class="text-primary">Prijavite se</a>
               |
-              <a [routerLink]="" class="text-primary">Recover
-                Password</a>
+              <a [routerLink]="['/forgot-password']" class="text-primary">Vrati šifru</a>
             </h6>
           </div>
           <div class="modal-footer d-block text-center">
-            <button type="button" class="btn btn-wide btn-pill btn-shadow btn-hover-shine btn-secondary btn-lg">Create
-              Account
-            </button>
+            <button type="button" class="btn btn-wide btn-pill btn-shadow btn-hover-shine btn-secondary btn-lg" (click)="register()">Kreirajte nalog</button>
           </div>
         </div>
       </div>
       <div class="text-center text-white opacity-8 mt-3">
-        Copyright © ArchitectUI 2019
+        Copyright © Playtime App
       </div>
     </div>
   </div>

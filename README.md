@@ -1,4 +1,4 @@
-# ArchitectUI - Angular 11 Bootstrap 5
+# Playtime app for activities with kids
 
 This admin dashboard was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
 

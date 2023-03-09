@@ -4,49 +4,52 @@
       <div class="app-logo-inverse mx-auto mb-3"></div>
       <div class="modal-dialog w-100 mx-auto">
         <div class="modal-content">
-          <div class="modal-body">
-            <div class="h5 modal-title text-center">
-              <h4 class="mt-2">
-                <div>Welcome back,</div>
-                <span>Please sign in to your account below.</span>
-              </h4>
+          <form (ngSubmit)="login()">
+            <div class="modal-body">
+              <div class="h5 modal-title text-center">
+                <h4 class="mt-2">
+                  <div>Dobrodošli nazad,</div>
+                  <span>Molimo prijavite se na svoj račun ispod.</span>
+                </h4>
+              </div>
+              <div id="exampleInputGroup1" role="group" aria-describedby="exampleInputGroup1__BV_description_" class="mb-3">
+                <div>
+                  <input id="exampleInput1" type="email" placeholder="Unesite e-mail..." required="required"
+                    aria-required="true" class="form-control" aria-describedby="exampleInputGroup1__BV_description_"
+                    [(ngModel)]="user.email" name="email">
+                    <small tabindex="-1" id="exampleInputGroup1__BV_description_" class="form-text text-muted">Nikada nećemo dijeliti vašu e-mail adresu ni sa kim.
+                    </small>
+                </div>
+              </div>
+              <div id="exampleInputGroup2" role="group" class="mb-3">
+                <div><input id="exampleInput2" type="password" placeholder="Unesite šifru..." required="required"
+                    aria-required="true" class="form-control"
+                    [(ngModel)]="user.password" name="password"></div>
+              </div>
+              <div class="custom-control custom-checkbox form-check">
+                <input id="exampleCheck" type="checkbox" name="check" autocomplete="off" class="form-check-input" value="true">
+                <label for="exampleCheck" class="form-label form-check-label">
+                  Zapamti me
+                </label>
+              </div>
+              <div class="divider"></div>
+              <h6 class="mb-0">
+                Nemate nalog?
+                <a [routerLink]="'/register'" class="text-primary">Registracija</a>
+              </h6>
             </div>
-            <div id="exampleInputGroup1" role="group" aria-describedby="exampleInputGroup1__BV_description_" class="mb-3">
-              <div>
-                <input id="exampleInput1" type="email" placeholder="Enter email..." required="required"
-                  aria-required="true" class="form-control" aria-describedby="exampleInputGroup1__BV_description_">
-                <small tabindex="-1" id="exampleInputGroup1__BV_description_" class="form-text text-muted">We'll never
-                  share your email with anyone else.
-                </small>
+            <div class="modal-footer clearfix">
+              <ngb-toast #toast [autohide]="true" [delay]="0" class="bg-danger text-light"> Pogrešan e-mail ili šifra. </ngb-toast>
+              <div class="float-start"><a [routerLink]="'/forgot-password'" class="btn-lg btn btn-link">Vraćanje šifre</a></div>
+              <div class="float-end">
+                <button type="submit" class="btn btn-primary btn-lg">Prijava</button>
               </div>
             </div>
-            <div id="exampleInputGroup2" role="group" class="mb-3">
-              <div><input id="exampleInput2" type="password" placeholder="Enter password..." required="required"
-                  aria-required="true" class="form-control"></div>
-            </div>
-            <div class="custom-control custom-checkbox form-check">
-              <input id="exampleCheck" type="checkbox" name="check" autocomplete="off" class="form-check-input" value="true">
-              <label for="exampleCheck" class="form-label form-check-label">
-                Keep me logged in
-              </label>
-            </div>
-            <div class="divider"></div>
-            <h6 class="mb-0">
-              No account?
-              <a [routerLink]="" class="text-primary">Sign up now</a>
-            </h6>
-          </div>
-          <div class="modal-footer clearfix">
-            <div class="float-start"><a [routerLink]="" class="btn-lg btn btn-link">Recover
-                Password</a></div>
-            <div class="float-end">
-              <button type="button" class="btn btn-primary btn-lg">Login to Dashboard</button>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
       <div class="text-center text-white opacity-8 mt-3">
-        Copyright © ArchitectUI 2019
+        Copyright © Playtime App
       </div>
     </div>
   </div>
