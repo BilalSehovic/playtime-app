@@ -52,7 +52,7 @@
                 Prihvatite naše <a [routerLink]="">uslove i odredbe</a>.
               </label>
             </div>
-            <ngb-toast #toast [autohide]="true" [delay]="0" class="bg-danger text-light"> Šifre se ne slažu ili uslovi nisu prihvaćeni. </ngb-toast>
+            <app-toast [visible]="toastVisible" [message]="toastMessage"></app-toast>
             <div class="divider"></div>
             <h6 class="mb-0">
               Već imate nalog?

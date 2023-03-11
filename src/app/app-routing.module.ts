@@ -55,24 +55,9 @@ import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   {
-    path: 'login',
-    component: LoginBoxedComponent,
-    data: {extraParameter: ''}
-  },
-  {
-    path: 'register',
-    component: RegisterBoxedComponent,
-    data: {extraParameter: ''}
-  },
-  {
-    path: 'forgot-password',
-    component: ForgotPasswordBoxedComponent,
-    data: {extraParameter: ''}
-  },
-  {
     path: '',
     component: BaseLayoutComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     children: [
 
       // Dashboads
@@ -129,6 +114,21 @@ const routes: Routes = [
       {path: 'pages/register-boxed', component: RegisterBoxedComponent, data: {extraParameter: ''}},
       {path: 'pages/forgot-password-boxed', component: ForgotPasswordBoxedComponent, data: {extraParameter: ''}},
     ]
+  },
+  {
+    path: 'login',
+    component: LoginBoxedComponent,
+    data: {extraParameter: ''}
+  },
+  {
+    path: 'register',
+    component: RegisterBoxedComponent,
+    data: {extraParameter: ''}
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordBoxedComponent,
+    data: {extraParameter: ''}
   },
   {path: '**', redirectTo: ''}
 ];

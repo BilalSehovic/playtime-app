@@ -38,12 +38,11 @@
                 <a [routerLink]="'/register'" class="text-primary">Registracija</a>
               </h6>
             </div>
-            <div class="modal-footer clearfix">
-              <ngb-toast #toast [autohide]="true" [delay]="0" class="bg-danger text-light"> Pogrešan e-mail ili šifra. </ngb-toast>
-              <div class="float-start"><a [routerLink]="'/forgot-password'" class="btn-lg btn btn-link">Vraćanje šifre</a></div>
-              <div class="float-end">
-                <button type="submit" class="btn btn-primary btn-lg">Prijava</button>
-              </div>
+            <div class="modal-footer clearfix" style="display: block;">
+              <app-toast [visible]="toastVisible" [message]="toastMessage"></app-toast>
+              <button type="button" class="btn btn-primary btn-lg float-start" (click)="login(true)">Prijava kao gost</button>
+              <a [routerLink]="'/forgot-password'" class="btn-lg btn btn-link float-start">Vraćanje šifre</a>
+              <button type="submit" class="btn btn-primary btn-lg float-end">Prijava</button>
             </div>
           </form>
         </div>

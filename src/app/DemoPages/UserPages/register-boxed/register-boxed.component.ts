@@ -9,8 +9,9 @@ import { User } from '../../../models/user';
   styles: []
 })
 export class RegisterBoxedComponent implements OnInit {
-  @ViewChild(NgbToast) toast!: NgbToast;
-
+  public toastVisible: boolean = false;
+  public toastMessage: string = 'Šifre se ne slažu ili uslovi nisu prihvaćeni.';
+  
   public user: User = new User();
   public passwordMatch: string = '';
   public terms: boolean = false;
@@ -21,12 +22,11 @@ export class RegisterBoxedComponent implements OnInit {
   }
 
   public register() {
-    debugger;
     if ((this.user.password != this.passwordMatch) || !this.terms) {
-      this.toast.show();
+      this.toastVisible = true;
       return;
     } else {
-      this.toast.hide();
+      this.toastVisible = false;
     }
 
     this.authService.register(this.user);

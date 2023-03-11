@@ -105,6 +105,7 @@ import {DoughnutChartComponent} from './DemoPages/Charts/chartjs/examples/doughn
 import {PieChartComponent} from './DemoPages/Charts/chartjs/examples/pie-chart/pie-chart.component';
 
 import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastComponent } from './shared-components/toast/toast.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -195,6 +196,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DynamicChartComponent,
     BubbleChartComponent,
     ScatterChartComponent,
+    ToastComponent,
   ],
   imports: [
     BrowserModule,
