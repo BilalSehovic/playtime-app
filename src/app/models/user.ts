@@ -1,3 +1,4 @@
+import { Child } from './child';
 import { UserRole } from './user-role.enum';
 
 export class User {
@@ -5,5 +6,6 @@ export class User {
     email: string = '';
     password: string = '';
     role: UserRole = UserRole.Parent;
+    children: Child[] = [];
     imageUrl?: string;
 }

@@ -7,11 +7,13 @@ import {ThemeOptions} from '../../../../../theme-options';
   templateUrl: './user-box.component.html',
 })
 export class UserBoxComponent implements OnInit {
+  public email: string = '';
 
   constructor(public globals: ThemeOptions, private authService: AuthService) {
   }
 
   ngOnInit() {
+    this.email = this.authService.getCurrentUser().email;
   }
   
   public signout() {

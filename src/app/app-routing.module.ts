@@ -52,13 +52,22 @@ import {LayoutComponent} from './DemoPages/Forms/Elements/layout/layout.componen
 
 import {ChartjsComponent} from './DemoPages/Charts/chartjs/chartjs.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { ActivitiesComponent } from './components/activities/activities.component';
+import { ChildrenComponent } from './components/children/children.component';
+import { ChildComponent } from './components/child/child.component';
 
 const routes: Routes = [
   {
     path: '',
     component: BaseLayoutComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
     children: [
+
+      // Components
+
+      {path: 'activities', component: ActivitiesComponent, data: {extraParameter: 'activitiesMenu'}},
+      {path: 'children', component: ChildrenComponent, data: {extraParameter: 'childrenMenu'}},
+      {path: 'child', component: ChildComponent, data: {extraParameter: 'childMenu'}},
 
       // Dashboads
 
@@ -102,18 +111,6 @@ const routes: Routes = [
 
     ]
 
-  },
-  {
-    path: '',
-    component: PagesLayoutComponent,
-    children: [
-
-      // User Pages
-
-      {path: 'pages/login-boxed', component: LoginBoxedComponent, data: {extraParameter: ''}},
-      {path: 'pages/register-boxed', component: RegisterBoxedComponent, data: {extraParameter: ''}},
-      {path: 'pages/forgot-password-boxed', component: ForgotPasswordBoxedComponent, data: {extraParameter: ''}},
-    ]
   },
   {
     path: 'login',

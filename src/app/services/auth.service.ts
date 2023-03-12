@@ -24,6 +24,8 @@ export class AuthService {
   }
 
   public login(user: User): boolean {
+    let existingUser = this.getUsers().find(e => e.email == user.email && e.password == user.password);
+    user = existingUser ?? user;
     this.localStorageService.setItem('currentUser', user);
     return this.isAuthenticated();
   }

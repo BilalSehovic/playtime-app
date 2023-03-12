@@ -1,0 +1,20 @@
+<div class="mb-3 mr-1 card text-center text-white card-body bg-info">
+    <h5 class="text-white card-title">Pregled Djece</h5>
+    Pregled sve unijete djece na jednom mjestu i njihovih osobina.
+</div>
+<div class="row">
+    <div *ngFor="let child of children; index as i; first as isFirst">
+        <div class="main-card col-md-6 mb-3 card">
+            <div class="card-header">{{child.name}}</div>
+            <div class="card-body">
+                <p>With supporting text below as a natural lead-in to additional content.</p>
+                <p class="mb-0">Lorem Ipsum has been the industry's standard dummy text ever since the
+                    1500s, when an unknown printer took a galley of type and scrambled.</p>
+            </div>
+            <div class="d-block text-right card-footer">
+                <button class="mr-2 btn btn-link btn-sm">Cancel</button>
+                <button class="btn btn-success btn-lg">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

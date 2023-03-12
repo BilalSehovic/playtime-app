@@ -106,6 +106,9 @@ import {PieChartComponent} from './DemoPages/Charts/chartjs/examples/pie-chart/p
 
 import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastComponent } from './shared-components/toast/toast.component';
+import { ActivitiesComponent } from './components/activities/activities.component';
+import { ChildrenComponent } from './components/children/children.component';
+import { ChildComponent } from './components/child/child.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -197,6 +200,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BubbleChartComponent,
     ScatterChartComponent,
     ToastComponent,
+    ActivitiesComponent,
+    ChildComponent,
+    ChildrenComponent,
   ],
   imports: [
     BrowserModule,
