@@ -3,32 +3,15 @@
     Pregled sve unijete djece i njihovih osobina na jednom mjestu.
 </div>
 <div class="row">
-    <div class="col-md-6">
-        <div *ngFor="let child of children; index as i; first as isFirst">
-            <div *ngIf="i%2==0" class="main-card mb-3 card">
-                <div class="card-header">{{child.name}}</div>
-                <div class="card-body">
-                    <p>Broj godina: <b>{{child.age}}</b></p>
-                    <p class="mb-0">Interesi: <b>{{child.interests}}.</b></p>
-                </div>
-                <div class="d-block text-right card-footer">
-                    <button class="btn btn-success btn-lg float-end">Izmijeni</button>
-                </div>
+    <div class="col-md-6" *ngFor="let child of children; index as i; first as isFirst">
+        <div class="main-card mb-3 card">
+            <div class="card-header">{{child.name}}</div>
+            <div class="card-body">
+                <p>Broj godina: <b>{{child.age}}</b></p>
+                <p class="mb-0">Interesi: <b>{{child.interests}}.</b></p>
             </div>
-        </div>
-    </div>
-    
-    <div class="col-md-6">
-        <div *ngFor="let child of children; index as i; first as isFirst">
-            <div *ngIf="i%2==1" class="main-card mb-3 card">
-                <div class="card-header">{{child.name}}</div>
-                <div class="card-body">
-                    <p>Broj godina: <b>{{child.age}}</b></p>
-                    <p class="mb-0">Interesi: <b>{{child.interests}}.</b></p>
-                </div>
-                <div class="d-block text-right card-footer">
-                    <button class="btn btn-success btn-lg float-end">Izmijeni</button>
-                </div>
+            <div class="d-block text-right card-footer">
+                <button class="btn btn-success btn-lg float-end">Izmijeni</button>
             </div>
         </div>
     </div>

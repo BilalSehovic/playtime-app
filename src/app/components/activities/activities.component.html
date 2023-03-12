@@ -1,1 +1,23 @@
-<p>activities works!</p>
+<div class="mb-3 mr-1 card text-center text-white card-body bg-info">
+    <h5 class="text-white card-title">Pregled Aktivnosti</h5>
+    Pregled svih aktivnosti uz mogućnost filtriranja.
+</div>
+<div class="mb-3 mr-1 card text-center text-white card-body bg-info">
+    <h5 class="text-white card-title">filtriranje</h5>
+    ovdje ide kartica za filtriranje....
+</div>
+<div class="row">
+    <div class="col-md-6" *ngFor="let activity of activities; index as i; first as isFirst">
+        <div class="main-card mb-3 card">
+            <div class="card-header">{{child.name}}</div>
+            <div class="card-body">
+                <p>Broj godina: <b>{{child.age}}</b></p>
+                <p class="mb-0">Interesi: <b>{{child.interests}}.</b></p>
+            </div>
+            <div class="d-block text-right card-footer">
+                <button class="btn btn-success btn-lg float-end">Izmijeni</button>
+            </div>
+        </div>
+    </div>
+</div>
+<a class="br-icon" routerLink="/activity"></a>

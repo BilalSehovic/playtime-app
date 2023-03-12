@@ -3,11 +3,11 @@ import { Child } from '../../models/child';
 import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-child',
-  templateUrl: './child.component.html',
-  styleUrls: ['./child.component.sass']
+  selector: 'app-activity',
+  templateUrl: './activity.component.html',
+  styleUrls: ['./activity.component.sass']
 })
-export class ChildComponent implements OnInit {
+export class ActivityComponent implements OnInit {
   public child: Child = new Child();
   public toastVisible: boolean = false;
   public toastMessage: string = 'Nije unijeto ime ili godine ili interesi.';

@@ -53,6 +53,7 @@ import {LayoutComponent} from './DemoPages/Forms/Elements/layout/layout.componen
 import {ChartjsComponent} from './DemoPages/Charts/chartjs/chartjs.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ActivitiesComponent } from './components/activities/activities.component';
+import { ActivityComponent } from './components/activity/activity.component';
 import { ChildrenComponent } from './components/children/children.component';
 import { ChildComponent } from './components/child/child.component';
 
@@ -66,6 +67,7 @@ const routes: Routes = [
       // Components
 
       {path: 'activities', component: ActivitiesComponent, data: {extraParameter: 'activitiesMenu'}},
+      {path: 'activity', component: ActivityComponent, data: {extraParameter: 'activityMenu'}},
       {path: 'children', component: ChildrenComponent, data: {extraParameter: 'childrenMenu'}},
       {path: 'child', component: ChildComponent, data: {extraParameter: 'childMenu'}},
 
