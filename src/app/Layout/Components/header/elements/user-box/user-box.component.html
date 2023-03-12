@@ -2,7 +2,7 @@
   <div class="header-btn-lg pe-0">
     <div class="widget-content p-0">
       <div class="widget-content-wrapper">
-        <button type="button" class="mb-2 me-2 btn btn-primary" routerLink="children">
+        <button *ngIf="parent" type="button" class="mb-2 me-2 btn btn-primary" routerLink="children">
           Djeca<i class="fa fa-fw" aria-hidden="true" title="child"></i>
         </button>
         <div style="border-left: 2px solid darkgray; height: 1.5rem;"  class="m-2"></div>
@@ -17,8 +17,9 @@
               </span>
             </button>
             <div ngbDropdownMenu>
-              <button class="dropdown-item">Postavke</button>
-              <button class="dropdown-item" routerLink="child">Dodaj dijete</button>
+              <button *ngIf="parent" class="dropdown-item" routerLink="children">Djeca</button>
+              <button *ngIf="parent" class="dropdown-item" routerLink="child">Dodaj dijete</button>
+              <button *ngIf="moderator" class="dropdown-item" routerLink="activity">Dodaj aktivnost</button>
               <div class="dropdown-divider"></div>
               <button class="dropdown-item btn-pill btn-shadow btn-shine btn btn-focus"
                 (click)="signout()">Odjava</button>

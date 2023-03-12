@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgbToast } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from '../../../services/auth.service';
+import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/user';
 
 @Component({
@@ -16,7 +15,7 @@ export class RegisterBoxedComponent implements OnInit {
   public passwordMatch: string = '';
   public terms: boolean = false;
   
-  constructor(private authService: AuthService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -29,6 +28,6 @@ export class RegisterBoxedComponent implements OnInit {
       this.toastVisible = false;
     }
 
-    this.authService.register(this.user);
+    this.userService.register(this.user);
   }
 }

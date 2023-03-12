@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-children',
   templateUrl: './children.component.html',
-  styleUrls: ['./children.component.sass']
+  styleUrls: ['./children.component.css']
 })
 export class ChildrenComponent implements OnInit {
   public children = [];
 
-  constructor(private authService: AuthService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.children = this.authService.getCurrentUser().children;
+    this.children = this.userService.getCurrentUser().children;
   }
 
 }
