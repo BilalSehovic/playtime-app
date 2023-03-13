@@ -68,6 +68,7 @@ const routes: Routes = [
 
       {path: 'activities', component: ActivitiesComponent, data: {extraParameter: 'activitiesMenu'}},
       {path: 'activity', component: ActivityComponent, data: {extraParameter: 'activityMenu'}},
+      {path: 'activity/:id', component: ActivityComponent, data: {extraParameter: 'activityMenu'}},
       {path: 'children', component: ChildrenComponent, data: {extraParameter: 'childrenMenu'}},
       {path: 'child', component: ChildComponent, data: {extraParameter: 'childMenu'}},
 

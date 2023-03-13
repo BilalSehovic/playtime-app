@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivityService } from 'src/app/services/activity.service';
 import { Activity } from '../../models/activity/activity';
-import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-activities',
@@ -10,10 +10,10 @@ import { UserService } from '../../services/user.service';
 export class ActivitiesComponent implements OnInit {
   public activities: Activity[] = [];
 
-  constructor(private userService: UserService) { }
+  constructor(private activityService: ActivityService) { }
 
   ngOnInit(): void {
-    // this.activities = this.userService.getCurrentUser().children;
+    this.activities = this.activityService.getActivities();
   }
 
 }
