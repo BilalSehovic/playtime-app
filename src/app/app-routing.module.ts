@@ -76,7 +76,7 @@ const routes: Routes = [
 
       // Dashboads
 
-      {path: '', component: AnalyticsComponent, data: {extraParameter: 'dashboardsMenu'}},
+      {path: '', component: ActivitiesComponent, data: {extraParameter: 'dashboardsMenu'}},
 
       // Elements
 

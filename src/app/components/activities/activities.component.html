@@ -1,7 +1,9 @@
 <app-page-title [heading]="heading" [subheading]="subheading" [icon]="icon" [addNewLink]="addNewLink"></app-page-title>
 <div class="mb-3 mr-1 card text-center text-white card-body bg-info">
-    <h5 class="text-white card-title">filtriranje</h5>
-    ovdje ide kartica za filtriranje....
+    <h4 class="text-white card-title">Filtriranje</h4>
+    <div class="row">
+        <button *ngFor="let keyword of keywords;" class="col-md-1 mb-2 me-2 btn btn-pill" [ngClass]="keywordSelected(keyword) ? 'btn-light' : 'btn-primary'" (click)="toggleKeywordSelection(keyword)">{{keyword}}</button>
+    </div>
 </div>
 <div class="row">
     <div class="col-md-6" *ngFor="let activity of activities; index as i; first as isFirst">

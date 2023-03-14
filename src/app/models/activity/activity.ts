@@ -12,5 +12,7 @@ export class Activity {
     public pictures: string[] = [];
     /** External links. */
     public links: string[] = [];
+    /** Keywords for filtering */
+    public keywords: string[] = [];
     public reviews: Review[] = [];
 }

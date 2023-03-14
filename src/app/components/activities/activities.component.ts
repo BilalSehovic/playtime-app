@@ -13,6 +13,8 @@ import { UserRole } from 'src/app/models/user-role.enum';
 })
 export class ActivitiesComponent implements OnInit {
   public activities: Activity[] = [];
+  public keywords: string[] = [];
+  public selectedKeywords: string[] = [];
 
   public buttonReview: boolean = true;
   public buttonEdit: boolean = true;
@@ -29,6 +31,7 @@ export class ActivitiesComponent implements OnInit {
 
   ngOnInit(): void {
     this.activities = this.activityService.getActivities();
+    this.keywords = this.activityService.getKeywords();
     this.buttonReview = this.userService.getCurrentUser().role == UserRole.Parent;
     this.buttonEdit = this.userService.getCurrentUser().role == UserRole.Moderator;
   }
@@ -37,5 +40,14 @@ export class ActivitiesComponent implements OnInit {
     let arr = reviews.length ? reviews.map(e => e.rating) : [5];
     let average = arr.reduce((a, b) => a + b, 0) / arr.length;
     return average;
+  }
+
+  public toggleKeywordSelection(keyword) {
+    let i = this.selectedKeywords.indexOf(keyword);
+    (i == -1) ? this.selectedKeywords.push(keyword) : this.selectedKeywords.splice(i, 1);
+  }
+
+  public keywordSelected(keyword: string) {
+    this.selectedKeywords.includes(keyword);
   }
 }

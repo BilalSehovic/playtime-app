@@ -66,6 +66,7 @@ export function dbSeeder(localStorageService: LocalStorageService): void {
         'https://connetixtiles.com/',
         'https://connetixtiles.com/product/connetix-tiles-au-62-piece-set/'
     ];
+    a.keywords = ['rad rukama', 'magneti'];
     a.reviews = [];
     let r = new Review();
     r.id = 1;
@@ -85,6 +86,7 @@ export function dbSeeder(localStorageService: LocalStorageService): void {
         './assets/images/activities/kinderland-3.jpg'
     ];
     a.links = ['http://kinderland.ba/'];
+    a.keywords = ['veliki prostor', 'tobogan', 'trcanje'];
     a.reviews = [];
     activities.push(JSON.parse(JSON.stringify(a)));
     
@@ -97,6 +99,7 @@ export function dbSeeder(localStorageService: LocalStorageService): void {
         './assets/images/activities/fruitroll-2.jpg'
     ];
     a.links = ['https://indyschild.com/diy-fruit-roll-ups/'];
+    a.keywords = ['rad rukama', 'kuhinja'];
     a.reviews = [];
     r.id = 1;
     r.rating = 4;

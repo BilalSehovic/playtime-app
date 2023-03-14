@@ -23,11 +23,14 @@ export class ActivityComponent implements OnInit {
   ngOnInit(): void {
     let sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-       let activity = this.activityService.getActivities(this.id)[0];
-       this.activity = activity;
-       this.ageFrom = activity.ageGroup[0];
-       this.ageTo = activity.ageGroup[1];
-       this.link = activity.links[0];
+      if (isNaN(this.id)) {
+        return;  
+      }
+      let activity = this.activityService.getActivities(this.id)[0];
+      this.activity = activity;
+      this.ageFrom = activity.ageGroup[0];
+      this.ageTo = activity.ageGroup[1];
+      this.link = activity.links[0];
     });
    
     sub.unsubscribe();

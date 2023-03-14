@@ -17,6 +17,10 @@ export class ActivityService {
     return activities;
   }
 
+  public getKeywords(): string[] {
+    return JSON.parse(JSON.stringify(this.getActivities().map(e => e.keywords))).flat();
+  }
+
   public addActivity(activity: Activity): void {
     var activities = this.getActivities();
     activity.id = Math.max(...activities.map(e => e.id)) + 1;
