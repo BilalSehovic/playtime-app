@@ -12,6 +12,7 @@ import { UserRole } from 'src/app/models/user-role.enum';
   styleUrls: ['./activities.component.scss']
 })
 export class ActivitiesComponent implements OnInit {
+  public allActivities: Activity[] = [];
   public activities: Activity[] = [];
   public keywords: string[] = [];
   public selectedKeywords: string[] = [];
@@ -30,13 +31,14 @@ export class ActivitiesComponent implements OnInit {
   constructor(private activityService: ActivityService, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.activities = this.activityService.getActivities();
+    this.allActivities = this.activityService.getActivities();
+    this.activities = JSON.parse(JSON.stringify(this.allActivities));
     this.keywords = this.activityService.getKeywords();
     this.buttonReview = this.userService.getCurrentUser().role == UserRole.Parent;
     this.buttonEdit = this.userService.getCurrentUser().role == UserRole.Moderator;
   }
 
-  public getAverageRating(reviews: Review[]) {
+  public getAverageRating(reviews: Review[]): number {
     let arr = reviews.length ? reviews.map(e => e.rating) : [5];
     let average = arr.reduce((a, b) => a + b, 0) / arr.length;
     return average;
@@ -45,9 +47,25 @@ export class ActivitiesComponent implements OnInit {
   public toggleKeywordSelection(keyword) {
     let i = this.selectedKeywords.indexOf(keyword);
     (i == -1) ? this.selectedKeywords.push(keyword) : this.selectedKeywords.splice(i, 1);
+    // Filter activities.
+    this.filterActivities();
+  }
+
+  public filterActivities() {
+    if (!this.selectedKeywords.length) {
+      this.activities = JSON.parse(JSON.stringify(this.allActivities));
+      return;
+    }
+    this.activities = this.allActivities.filter(e => {
+      var output = false;
+      e.keywords.forEach(el => {
+        output = this.selectedKeywords.includes(el) || output;
+      });
+      return output;
+    });
   }
 
   public keywordSelected(keyword: string) {
-    this.selectedKeywords.includes(keyword);
+    return this.selectedKeywords.includes(keyword);
   }
 }

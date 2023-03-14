@@ -18,7 +18,10 @@ export class ActivityService {
   }
 
   public getKeywords(): string[] {
-    return JSON.parse(JSON.stringify(this.getActivities().map(e => e.keywords))).flat();
+    var keywords = this.getActivities().map(e => e.keywords);
+    var flat = JSON.parse(JSON.stringify(keywords)).flat();
+    // Removing duplicates;
+    return [...new Set<string>(flat)];
   }
 
   public addActivity(activity: Activity): void {

@@ -1,7 +1,7 @@
 <app-page-title [heading]="heading" [subheading]="subheading" [icon]="icon" [addNewLink]="addNewLink"></app-page-title>
 <div class="mb-3 mr-1 card text-center text-white card-body bg-info">
     <h4 class="text-white card-title">Filtriranje</h4>
-    <div class="row">
+    <div class="row justify-content-center">
         <button *ngFor="let keyword of keywords;" class="col-md-1 mb-2 me-2 btn btn-pill" [ngClass]="keywordSelected(keyword) ? 'btn-light' : 'btn-primary'" (click)="toggleKeywordSelection(keyword)">{{keyword}}</button>
     </div>
 </div>
@@ -22,9 +22,8 @@
                 <hr/>
                 <div class="row">
                     <div class="col-md-2"><b>Ocjene (1-5):</b></div>
-                    <div class="col-md-10"><ngb-progressbar type="success" [max]="5" [value]="getAverageRating(activity.reviews, true)"><b>{{getAverageRating(activity.reviews)}}<fa-icon [icon]="faStar" class="ms-2"></fa-icon></b></ngb-progressbar></div>
+                    <div class="col-md-10"><ngb-progressbar type="success" [max]="5" [value]="getAverageRating(activity.reviews, true)"><b>{{activity.reviews.length ? getAverageRating(activity.reviews) : 'Trenutno nema ocjena.'}}<fa-icon [icon]="faStar" class="ms-2"></fa-icon></b></ngb-progressbar></div>
                 </div>
-                <i *ngIf="!activity.reviews.length">Trenutno nema ocjena.</i>
                 <div *ngFor="let review of activity.reviews;">
                     <span>Ocjena: </span><b class="me-1">{{review.rating}}</b><fa-icon [icon]="faStar" class="me-2"></fa-icon>
                     <span>Opis: {{review.description}}</span>
