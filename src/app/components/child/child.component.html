@@ -2,7 +2,7 @@
     <div class="main-card mb-3 card">
         <div class="card-body">
             <h5 class="card-title">Dijete</h5>
-            <form (ngSubmit)="addChild()">
+            <form (ngSubmit)="add()">
                 <div class="position-relative mb-3">
                     <label for="name" class="form-label">Ime</label>
                     <input name="name" id="name" placeholder="Ime djeteta" type="text" class="form-control" [(ngModel)]="child.name">

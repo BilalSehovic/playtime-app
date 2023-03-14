@@ -1,0 +1,19 @@
+<div class="col-md-6">
+    <div class="main-card mb-3 card">
+        <div class="card-body">
+            <h5 class="card-title">Dijete</h5>
+            <form (ngSubmit)="add()">
+                <div class="position-relative mb-3">
+                    <label for="age" class="form-label">Ocjena</label>
+                    <input name="age" id="age" placeholder="Ocjena (1-5)" type="number" min="0" max="5" class="form-control" [(ngModel)]="review.rating">
+                </div>
+                <div class="position-relative mb-3">
+                    <label for="exampleText" class="form-label">Opis</label>
+                    <textarea name="text" id="exampleText" class="form-control" [(ngModel)]="review.description"></textarea>
+                </div>
+                <app-toast [visible]="toastVisible" [message]="toastMessage"></app-toast>
+                <button type="submit" class="mt-1 btn btn-primary float-end">Dodaj</button>
+            </form>
+        </div>
+    </div>
+</div>

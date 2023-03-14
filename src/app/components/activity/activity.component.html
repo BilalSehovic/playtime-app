@@ -1,36 +1,31 @@
 <div class="col-md-6">
     <div class="main-card mb-3 card">
         <div class="card-body">
-            <h5 class="card-title">Dijete</h5>
-            <form (ngSubmit)="addChild()">
+            <h5 class="card-title">Aktivnost</h5>
+            <form (ngSubmit)="add()">
                 <div class="position-relative mb-3">
-                    <label for="name" class="form-label">Ime</label>
-                    <input name="name" id="name" placeholder="Ime djeteta" type="text" class="form-control" [(ngModel)]="child.name">
+                    <label for="name" class="form-label">Naziv</label>
+                    <input name="name" id="name" placeholder="Naziv aktivnosti" type="text" class="form-control" [(ngModel)]="activity.name">
                 </div>
                 <div class="position-relative mb-3">
-                    <label for="age" class="form-label">Godine</label>
-                    <input name="age" id="age" placeholder="Broj godina" type="number" min="0" class="form-control" [(ngModel)]="child.age">
+                    <label for="description" class="form-label">Opis</label>
+                    <textarea name="description" id="description" placeholder="Opis aktivnosti" class="form-control" [(ngModel)]="activity.description"></textarea>
                 </div>
                 <div class="position-relative mb-3">
-                    <label for="interests" class="form-label">Interesi</label>
-                    <select multiple="multiple" name="interests" id="interests" class="form-select"  [(ngModel)]="child.interests">
-                        <option>auta</option>
-                        <option>crtici</option>
-                        <option>citanje</option>
-                        <option>lutke</option>
-                        <option>balet</option>
-                        <option>dinosauri</option>
-                    </select>
-                    <small class="form-text text-muted">Držate Ctrl za odabir više interesa.</small>
+                    <label for="description" class="form-label">Starosna dob</label>
+                    <div class="row">
+                        <input name="from" id="from" placeholder="od (npr. 0)" type="number" min="0" max="100" class="form-control me-2 age-from width-40" [(ngModel)]="ageFrom">
+                        <input name="to" id="to" placeholder="od (npr. 9)" type="number" min="0" max="100" class="form-control width-40" [(ngModel)]="ageTo">
+                    </div>
                 </div>
                 <div class="position-relative mb-3">
-                    <label for="exampleText" class="form-label">Opis</label>
-                    <textarea name="text" id="exampleText" class="form-control"></textarea>
+                    <label for="link" class="form-label">Eksterni Link</label>
+                    <input name="link" id="link" placeholder="Link" type="text" class="form-control" [(ngModel)]="link">
                 </div>
                 <div class="position-relative mb-3">
                     <label for="exampleFile" class="form-label">Slika</label>
                     <input name="file" id="exampleFile" type="file" class="form-control">
-                    <small class="form-text text-muted">Dodavanje slika djeteta. Polje nije obavezno.</small>
+                    <small class="form-text text-muted">Dodavanje slika aktivnosti. Polje nije obavezno.</small>
                 </div>
                 <app-toast [visible]="toastVisible" [message]="toastMessage"></app-toast>
                 <button type="submit" class="mt-1 btn btn-primary float-end">Dodaj</button>

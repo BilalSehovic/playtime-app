@@ -110,6 +110,8 @@ import { ActivitiesComponent } from './components/activities/activities.componen
 import { ChildrenComponent } from './components/children/children.component';
 import { ChildComponent } from './components/child/child.component';
 import { ActivityComponent } from './components/activity/activity.component';
+import { OverlayAddButtonComponent } from './shared-components/overlay-add-button/overlay-add-button.component';
+import { ReviewComponent } from './components/review/review.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -205,6 +207,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ChildComponent,
     ChildrenComponent,
     ActivityComponent,
+    OverlayAddButtonComponent,
+    ReviewComponent,
   ],
   imports: [
     BrowserModule,

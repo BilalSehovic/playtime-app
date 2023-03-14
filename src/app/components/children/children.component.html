@@ -1,7 +1,4 @@
-<div class="mb-3 mr-1 card text-center text-white card-body bg-info">
-    <h5 class="text-white card-title">Pregled Djece</h5>
-    Pregled sve unijete djece i njihovih osobina na jednom mjestu.
-</div>
+<app-page-title [heading]="heading" [subheading]="subheading" [icon]="icon" [addNewLink]="addNewLink"></app-page-title>
 <div class="row">
     <div class="col-md-6" *ngFor="let child of children; index as i; first as isFirst">
         <div class="main-card mb-3 card">
@@ -16,4 +13,3 @@
         </div>
     </div>
 </div>
-<a class="br-icon" routerLink="/child"></a>

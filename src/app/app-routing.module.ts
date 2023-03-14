@@ -56,6 +56,7 @@ import { ActivitiesComponent } from './components/activities/activities.componen
 import { ActivityComponent } from './components/activity/activity.component';
 import { ChildrenComponent } from './components/children/children.component';
 import { ChildComponent } from './components/child/child.component';
+import { ReviewComponent } from './components/review/review.component';
 
 const routes: Routes = [
   {
@@ -69,6 +70,7 @@ const routes: Routes = [
       {path: 'activities', component: ActivitiesComponent, data: {extraParameter: 'activitiesMenu'}},
       {path: 'activity', component: ActivityComponent, data: {extraParameter: 'activityMenu'}},
       {path: 'activity/:id', component: ActivityComponent, data: {extraParameter: 'activityMenu'}},
+      {path: 'review/:activityid', component: ReviewComponent, data: {extraParameter: 'reviewMenu'}},
       {path: 'children', component: ChildrenComponent, data: {extraParameter: 'childrenMenu'}},
       {path: 'child', component: ChildComponent, data: {extraParameter: 'childMenu'}},
 

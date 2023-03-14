@@ -1,5 +1,6 @@
 export class Child {
-    name: string = '';
-    age: number = 0;
-    interests: string[] = [];
+    public id: number = 0;
+    public name: string = '';
+    public age: number = 0;
+    public interests: string[] = [];
 }

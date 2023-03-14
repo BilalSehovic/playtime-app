@@ -10,6 +10,11 @@ import { UserService } from '../../services/user.service';
 export class ChildrenComponent implements OnInit {
   public children: Child[] = [];
 
+  public heading = 'Pregled Djece';
+  public subheading = 'Pregled sve unijete djece i njihovih osobina na jednom mjestu.';
+  public icon = 'pe-7s-users icon-gradient bg-sunny-morning';
+  public addNewLink = '/child';
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {

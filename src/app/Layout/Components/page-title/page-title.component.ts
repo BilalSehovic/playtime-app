@@ -13,5 +13,7 @@ export class PageTitleComponent {
   @Input() heading;
   @Input() subheading;
   @Input() icon;
+  @Input() showButtons: boolean = true;
+  @Input() addNewLink: string = '';
 
 }

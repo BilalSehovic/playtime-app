@@ -32,6 +32,8 @@ export class UserService {
   public addChild(child: Child): void {
     var users = this.getUsers();
     var user = this.getCurrentUser();
+    child.id = Math.max(...user.children.map(e => e.id)) + 1;
+    child.id = (child.id == -Infinity) ? 1 : child.id;
     users.find(e => e.email == user.email && e.password == user.password).children.push(child);
     this.localStorageService.setItem('users', users);
     this.router.navigate(['/children']);

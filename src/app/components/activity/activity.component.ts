@@ -1,40 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Child } from '../../models/child';
-import { UserService } from '../../services/user.service';
+import { Activity } from '../../models/activity/activity';
+import { ActivityService } from '../../services/activity.service';
 
 @Component({
   selector: 'app-activity',
   templateUrl: './activity.component.html',
-  styleUrls: ['./activity.component.sass']
+  styleUrls: ['./activity.component.scss']
 })
 export class ActivityComponent implements OnInit {
-  public child: Child = new Child();
+  public activity: Activity = new Activity();
   public toastVisible: boolean = false;
-  public toastMessage: string = 'Nije unijeto ime ili godine ili interesi.';
+  public toastMessage: string = 'Nije unijeto naziv ili opis ili starosna dob.';
   private id: number = 0;
 
-  constructor(private userService: UserService, private route: ActivatedRoute) { }
+  public ageFrom: number
+  public ageTo: number;
+  public link: string;
+
+  constructor(private activityService: ActivityService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     let sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      console.log(this.id);
-
-      // In a real app: dispatch action to load the details here.
+       let activity = this.activityService.getActivities(this.id)[0];
+       this.activity = activity;
+       this.ageFrom = activity.ageGroup[0];
+       this.ageTo = activity.ageGroup[1];
+       this.link = activity.links[0];
     });
    
     sub.unsubscribe();
   }
 
-  public addChild() {
-    if (!this.child.name || !this.child.age || this.child.interests?.length == 0) {
+  public add() {
+    if (!this.activity.name || !this.activity.description || !this.ageFrom || !this.ageTo) {
       this.toastVisible = true;
       return;
     } else {
       this.toastVisible = false;
     }
-    
-    this.userService.addChild(this.child);
+
+    this.activity.ageGroup = [this.ageFrom, this.ageTo];
+    this.activity.links = [this.link];
+    this.activityService.addActivity(this.activity);
   }
 }

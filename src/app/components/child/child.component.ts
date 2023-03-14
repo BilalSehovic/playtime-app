@@ -17,7 +17,7 @@ export class ChildComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public addChild() {
+  public add() {
     if (!this.child.name || !this.child.age || this.child.interests?.length == 0) {
       this.toastVisible = true;
       return;
