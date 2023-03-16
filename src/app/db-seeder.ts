@@ -43,7 +43,8 @@ export function dbSeeder(localStorageService: LocalStorageService): void {
     u.role = UserRole.Guest;
     u.children = [];
     users.push(JSON.parse(JSON.stringify(u)));
-    localStorageService.setItem('users', users);
+
+    localStorageSetItem(localStorageService, 'users', users);
 
     /**
      * Activities
@@ -108,5 +109,11 @@ export function dbSeeder(localStorageService: LocalStorageService): void {
     a.reviews.push(JSON.parse(JSON.stringify(r)));
     activities.push(JSON.parse(JSON.stringify(a)));
 
-    localStorageService.setItem('activities', activities);
+    localStorageSetItem(localStorageService, 'activities', activities)
+}
+
+export function localStorageSetItem(localStorageService: LocalStorageService, key: string, value: any): void {
+    if (!localStorageService.getItem(key)) {
+        localStorageService.setItem(key, value);
+    }
 }
