@@ -23,6 +23,10 @@ export class UserBoxComponent implements OnInit {
     this.moderator = currentUser.role == UserRole.Moderator;
   }
   
+  public resetData() {
+    this.userService.resetData();
+  }
+
   public signout() {
     this.authService.logout();
   }

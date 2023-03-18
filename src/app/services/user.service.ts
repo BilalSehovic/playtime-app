@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { dbSeeder } from '../db-seeder';
 import { Child } from '../models/child';
 import { User } from '../models/user';
 import { AuthService } from './auth.service';
@@ -37,5 +38,10 @@ export class UserService {
     users.find(e => e.email == user.email && e.password == user.password).children.push(child);
     this.localStorageService.setItem('users', users);
     this.router.navigate(['/children']);
+  }
+
+  public resetData(): void {
+    this.localStorageService.resetData();
+    dbSeeder(this.localStorageService);
   }
 }

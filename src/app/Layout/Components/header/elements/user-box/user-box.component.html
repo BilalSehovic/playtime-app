@@ -20,9 +20,9 @@
               <button *ngIf="parent" class="dropdown-item" routerLink="children">Djeca</button>
               <button *ngIf="parent" class="dropdown-item" routerLink="child">Dodaj dijete</button>
               <button *ngIf="moderator" class="dropdown-item" routerLink="activity">Dodaj aktivnost</button>
+              <button *ngIf="moderator" class="dropdown-item" (click)="resetData()">Reset data</button>
               <div class="dropdown-divider"></div>
-              <button class="dropdown-item btn-pill btn-shadow btn-shine btn btn-focus"
-                (click)="signout()">Odjava</button>
+              <button class="dropdown-item btn-pill btn-shadow btn-shine btn btn-focus" (click)="signout()">Odjava</button>
             </div>
           </div>
         </div>
